@@ -228,3 +228,4 @@ class Creators(BaseModel):
         if force_update is True:
             self.name = slugify(self.first_name + self.last_name)
         super().save(force_insert=False, force_update=False, using=None, update_fields=None)
+
