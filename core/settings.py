@@ -15,13 +15,12 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Quick-start development settings - unsuitable for production
+# Quick-start development settings - unsuitable for ction
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
+# SECURITY WARNING: keep the secret key used in ction secret!
 SECRET_KEY = 'django-insecure-x^4f&4#6en06j7(hnac^%@d1e*rbxs_*mrk0o7jg@(r9c$pbaf'
-
-# SECURITY WARNING: don't run with debug turned on in production!
+# SECURITY WARNING: don't run with debug turned on in ction!
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
@@ -84,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'cic_api',
         'USER': 'postgres',
-        'PASSWORD': '1',
+        'PASSWORD': 1,
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -137,3 +136,12 @@ ELASTICSEARCH_DSL = {
         'hosts': 'localhost:9200'
     }
 }
+
+
+# EMAIL SETTINGS
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = os.getenv('FROM')
+EMAIL_HOST_PASSWORD = os.getenv('PASSWORD')

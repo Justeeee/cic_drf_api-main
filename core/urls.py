@@ -28,7 +28,7 @@ schema_view = get_schema_view(
       default_version='v1',
       description="Test description",
       terms_of_service="https://www.google.com/policies/terms/",
-      contact=openapi.Contact(email="contact@snippets.local"),
+      contact=openapi.Contact(email="nmirakbarova03@gmail.com"),
       license=openapi.License(name="BSD License"),
    ),
    public=True,
@@ -38,5 +38,6 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('', schema_view.with_ui('swagger', cache_timeout=0)),
     path('api/v1/', include('apps.urls')),
+    path('api/v1/', include('user.urls')),
     path('admin/', admin.site.urls),
 ]

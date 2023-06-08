@@ -1,14 +1,17 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
-from apps.views import BranchModelViewSet, CategoryModelViewSet, TagModelViewSet, BlogModelViewSet
+from apps.views import BlogModelViewSet, BranchModelViewSet, TagModelViewSet, CreatorModelViewSet
+
+# from apps.views import BranchModelViewSet, CategoryModelViewSet, TagModelViewSet, BlogModelViewSet
 
 router = DefaultRouter()
-router.register('branch', BranchModelViewSet, 'branch')
-router.register('tag', TagModelViewSet, 'tag')
-router.register('category', CategoryModelViewSet, 'category')
-router.register('blog', BlogModelViewSet, 'blog')
+router.register('branch', BranchModelViewSet)
+router.register('blog', BlogModelViewSet)
+router.register('creator', CreatorModelViewSet)
+router.register('tag', TagModelViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
+    # path('get-count/', GetCountAPIView.as_view())
 ]
