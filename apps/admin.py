@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.admin import TabularInline, ModelAdmin
 
-from apps.models import Blog, BlogImages, Branch, Tag
+from apps.models import Blog, BlogImages, Branch, Tag, Author
 
 
 # Register your models here.
@@ -36,6 +36,12 @@ class BranchAdmin(ModelAdmin):
 class TagAdmin(ModelAdmin):
     search_fields = ['name']
     list_display = ['slug', 'name', 'id']
+    exclude = ('slug',)
+
+@admin.register(Author)
+class TagAdmin(ModelAdmin):
+    search_fields = ['first_name', 'last_name']
+    list_display = ['slug', 'first_name','last_name', 'id']
     exclude = ('slug',)
 
 
